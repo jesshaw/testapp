@@ -5,6 +5,10 @@
                 <font-awesome-icon icon="bars" />
             </b-navbar-toggle>
             <b-navbar-brand class="logo float-left" b-link to="/">
+                <b-button>
+                    <font-awesome-icon icon="th-list" />
+                    <span>Toggle Sidebar</span>
+                </b-button>
                 <span class="logo-img"></span>
                 <span v-text="$t('global.title')" class="navbar-title">testapp</span> <span class="navbar-version">{{version}}</span>
             </b-navbar-brand>
