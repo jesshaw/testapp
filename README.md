@@ -2,6 +2,14 @@
 
 This application was generated using JHipster 5.8.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.8.1](https://www.jhipster.tech/documentation-archive/v5.8.1).
 
+## DB
+
+mysql -u root -p
+
+CREATE DATABASE IF NOT EXISTS testapp DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+
+config database password
+
 ## Development
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
