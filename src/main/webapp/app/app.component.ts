@@ -14,4 +14,14 @@ import LoginForm from '@/account/login-form/login-form.vue';
     'jhi-footer': JhiFooter
   }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  public active = false;
+  mounted() {
+    this.$root.$on('onToggleSidebar', toggleId => {
+      console.log('toggleId:', toggleId);
+      if ('sidebar' === toggleId) {
+        this.active = !this.active;
+      }
+    });
+  }
+}

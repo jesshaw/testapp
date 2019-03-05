@@ -21,6 +21,10 @@ export default class JhiNavbar extends Vue {
     this.translationService().refreshTranslation(this.currentLanguage);
   }
 
+  public toggleSideBar(id: string) {
+    this.$root.$emit('onToggleSidebar', id);
+  }
+
   public subIsActive(input) {
     const paths = Array.isArray(input) ? input : [input];
     return paths.some(path => {

@@ -1,14 +1,8 @@
 <template>
     <b-navbar toggleable="md" type="dark" class="bg-primary">
         <div class="jh-logo-container float-left">
-            <button class="btn btn-primary float-left" type="button" data-toggle="collapse" data-target="#sidebar" aria-expanded="false" aria-controls="sidebar">
-                <font-awesome-icon icon="th-list" />
-            </button>
-            <b-button v-b-toggle.sidebar1 variant="primary">Toggle Collapse</b-button>
-
-            <!--<b-collapse  id="sidebar1">-->
-                <!--<b-card>I should start open!</b-card>-->
-            <!--</b-collapse>-->
+            <b-button v-on:click="toggleSideBar('sidebar')" variant="primary float-left"><font-awesome-icon icon="th-list" /></b-button>
+            <!--<b-button v-b-toggle.sidebar variant="primary float-left"><font-awesome-icon icon="th-list" /></b-button>-->
             <b-navbar-brand class="logo float-left" b-link to="/">
                 <!--<span class="logo-img"></span>-->
                 <span v-text="$t('global.title')" class="navbar-title">testapp</span> <span class="navbar-version">{{version}}</span>

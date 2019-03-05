@@ -1,10 +1,10 @@
 <template>
     <div id="app" class="wrapper">
         <!-- Sidebar Holder -->
-        <nav id="sidebar" class="collapse">
-            <div class="sidebar-header">
-                <h3>Bootstrap Sidebar</h3>
-            </div>
+            <nav id="sidebar" :class="active?'active':''">
+                <div class="sidebar-header">
+                    <h3>Bootstrap Sidebar</h3>
+                </div>
 
             <ul class="list-unstyled components">
                 <p>Dummy Heading</p>

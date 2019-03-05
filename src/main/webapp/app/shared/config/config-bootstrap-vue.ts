@@ -20,6 +20,7 @@ import bLink from 'bootstrap-vue/es/components/link/link';
 import bAlert from 'bootstrap-vue/es/components/alert/alert';
 import bModal from 'bootstrap-vue/es/components/modal/modal';
 import bModalDirective from 'bootstrap-vue/es/directives/modal/modal';
+import vBToggle from 'bootstrap-vue/es/directives/toggle/toggle';
 
 export function initBootstrapVue(vue) {
   vue.component('b-badge', bBadge);
@@ -44,4 +45,5 @@ export function initBootstrapVue(vue) {
   vue.component('b-nav-item', bNavItem);
   vue.component('b-nav-item-dropdown', bNavItemDropdown);
   vue.directive('b-modal', bModalDirective);
+  vue.directive('b-toggle', vBToggle);
 }
