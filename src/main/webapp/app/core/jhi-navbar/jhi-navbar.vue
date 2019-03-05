@@ -1,17 +1,21 @@
 <template>
     <b-navbar toggleable="md" type="dark" class="bg-primary">
         <div class="jh-logo-container float-left">
+            <button class="btn btn-primary float-left" type="button" data-toggle="collapse" data-target="#sidebar" aria-expanded="false" aria-controls="sidebar">
+                <font-awesome-icon icon="th-list" />
+            </button>
+            <b-button v-b-toggle.sidebar1 variant="primary">Toggle Collapse</b-button>
+
+            <!--<b-collapse  id="sidebar1">-->
+                <!--<b-card>I should start open!</b-card>-->
+            <!--</b-collapse>-->
+            <b-navbar-brand class="logo float-left" b-link to="/">
+                <!--<span class="logo-img"></span>-->
+                <span v-text="$t('global.title')" class="navbar-title">testapp</span> <span class="navbar-version">{{version}}</span>
+            </b-navbar-brand>
             <b-navbar-toggle right class="jh-navbar-toggler d-lg-none float-right" href="javascript:void(0);"  data-toggle="collapse" target="header-tabs" aria-expanded="false" aria-label="Toggle navigation">
                 <font-awesome-icon icon="bars" />
             </b-navbar-toggle>
-            <b-navbar-brand class="logo float-left" b-link to="/">
-                <b-button>
-                    <font-awesome-icon icon="th-list" />
-                    <span>Toggle Sidebar</span>
-                </b-button>
-                <span class="logo-img"></span>
-                <span v-text="$t('global.title')" class="navbar-title">testapp</span> <span class="navbar-version">{{version}}</span>
-            </b-navbar-brand>
         </div>
         <b-collapse is-nav id="header-tabs">
             <b-navbar-nav class="ml-auto">
