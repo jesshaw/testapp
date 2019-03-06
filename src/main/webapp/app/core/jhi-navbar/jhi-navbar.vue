@@ -1,15 +1,21 @@
 <template>
     <b-navbar toggleable="md" type="dark" class="bg-primary">
         <div class="jh-logo-container float-left">
-            <b-button v-on:click="toggleSideBar('sidebar')" variant="primary float-left"><font-awesome-icon icon="th-list" /></b-button>
+            <b-button v-on:click="toggleSideBar('sidebar')" variant="primary float-left">
+                <font-awesome-icon :icon="showBar?'bars':'times'"/>
+            </b-button>
             <!--<b-button v-b-toggle.sidebar variant="primary float-left"><font-awesome-icon icon="th-list" /></b-button>-->
             <b-navbar-brand class="logo float-left" b-link to="/">
                 <!--<span class="logo-img"></span>-->
                 <span v-text="$t('global.title')" class="navbar-title">testapp</span> <span class="navbar-version">{{version}}</span>
             </b-navbar-brand>
-            <b-navbar-toggle right class="jh-navbar-toggler d-lg-none float-right" href="javascript:void(0);"  data-toggle="collapse" target="header-tabs" aria-expanded="false" aria-label="Toggle navigation">
-                <font-awesome-icon icon="bars" />
-            </b-navbar-toggle>
+
+            <b-button v-b-toggle.header-tabs variant="primary" class="jh-navbar-toggler float-right">
+                <font-awesome-icon icon="th" />
+            </b-button>
+            <!--<b-navbar-toggle right class="jh-navbar-toggler d-lg-none float-right" href="javascript:void(0);"  data-toggle="collapse" target="header-tabs" aria-expanded="false" aria-label="Toggle navigation">-->
+                <!--<font-awesome-icon icon="th" />-->
+            <!--</b-navbar-toggle>-->
         </div>
         <b-collapse is-nav id="header-tabs">
             <b-navbar-nav class="ml-auto">

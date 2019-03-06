@@ -16,6 +16,7 @@ export default class JhiNavbar extends Vue {
   public version = VERSION ? 'v' + VERSION : '';
   private currentLanguage = this.$store.getters.currentLanguage;
   private languages: any = this.$store.getters.languages;
+  public showBar = true;
 
   created() {
     this.translationService().refreshTranslation(this.currentLanguage);
@@ -23,6 +24,7 @@ export default class JhiNavbar extends Vue {
 
   public toggleSideBar(id: string) {
     this.$root.$emit('onToggleSidebar', id);
+    this.showBar = !this.showBar;
   }
 
   public subIsActive(input) {
