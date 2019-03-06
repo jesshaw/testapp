@@ -1,7 +1,7 @@
 <template>
     <div id="app" class="wrapper">
         <!-- Sidebar Holder -->
-            <nav id="sidebar" :class="active?'active':''">
+            <nav id="sidebar" v-show="authenticated" :class="active?'active':''">
                 <div class="sidebar-header">
                     <h3>Bootstrap Sidebar</h3>
                 </div>

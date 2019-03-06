@@ -1,7 +1,7 @@
 <template>
     <b-navbar toggleable="md" type="dark" class="bg-primary">
         <div class="jh-logo-container float-left">
-            <b-button v-on:click="toggleSideBar('sidebar')" variant="primary float-left">
+            <b-button v-show="authenticated" v-on:click="toggleSideBar('sidebar')" variant="primary float-left">
                 <font-awesome-icon :icon="showBar?'bars':'times'"/>
             </b-button>
             <!--<b-button v-b-toggle.sidebar variant="primary float-left"><font-awesome-icon icon="th-list" /></b-button>-->

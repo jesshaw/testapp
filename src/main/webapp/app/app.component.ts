@@ -20,8 +20,12 @@ export default class App extends Vue {
     this.$root.$on('onToggleSidebar', toggleId => {
       console.log('toggleId:', toggleId);
       if ('sidebar' === toggleId) {
-        this.active = !this.active;
+        this.active = !this.active && this.$store.getters.authenticated;
       }
     });
+  }
+
+  public get authenticated(): boolean {
+    return this.$store.getters.authenticated;
   }
 }
