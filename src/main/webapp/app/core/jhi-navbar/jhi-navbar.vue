@@ -3,7 +3,7 @@
         <div class="jh-logo-container float-left">
             <b-button v-show="authenticated" v-on:click="toggleSideBar('sidebar')" variant="primary "
             class="float-left">
-                <font-awesome-icon icon="bars" :rotation="showBar?'':'90'"/>
+                <font-awesome-icon icon="bars" :rotation="showBar?180:90"/>
             </b-button>
             <!--<b-button v-b-toggle.sidebar variant="primary float-left"><font-awesome-icon icon="th-list" /></b-button>-->
             <b-navbar-brand class="logo float-left" b-link to="/">
