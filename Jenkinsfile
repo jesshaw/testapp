@@ -53,11 +53,17 @@ node {
 //        }
 //    }
 
-    def dockerImage
+//    def dockerImage
+//    stage('build docker') {
+//        sh "cp -R src/main/docker target/"
+//        sh "cp target/*.war target/docker/"
+//        dockerImage = docker.build('docker-login/testapp', 'target/docker')
+//    }
+
     stage('build docker') {
         sh "cp -R src/main/docker target/"
         sh "cp target/*.war target/docker/"
-        dockerImage = docker.build('docker-login/testapp', 'target/docker')
+        sh "docker build -t testapp ./target/docker/"
     }
 
 //    stage('publish docker') {
@@ -65,4 +71,8 @@ node {
 //            dockerImage.push 'latest'
 //        }
 //    }
+
+    stage('start docker') {
+        sh "docker-compose -f ./target/docker/app.yml up -d"
+    }
 }
