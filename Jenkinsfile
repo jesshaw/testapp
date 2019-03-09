@@ -22,15 +22,15 @@ node {
         sh "./mvnw com.github.eirslett:frontend-maven-plugin:npm"
     }
 
-    stage('backend tests') {
-        try {
-            sh "./mvnw test"
-        } catch(err) {
-            throw err
-        } finally {
-            junit '**/target/surefire-reports/TEST-*.xml'
-        }
-    }
+//    stage('backend tests') {
+//        try {
+//            sh "./mvnw test"
+//        } catch(err) {
+//            throw err
+//        } finally {
+//            junit '**/target/surefire-reports/TEST-*.xml'
+//        }
+//    }
 
 //    stage('frontend tests') {
 //        try {
@@ -60,9 +60,9 @@ node {
         dockerImage = docker.build('docker-login/testapp', 'target/docker')
     }
 
-    stage('publish docker') {
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-login') {
-            dockerImage.push 'latest'
-        }
-    }
+//    stage('publish docker') {
+//        docker.withRegistry('https://registry.hub.docker.com', 'docker-login') {
+//            dockerImage.push 'latest'
+//        }
+//    }
 }
