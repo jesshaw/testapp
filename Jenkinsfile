@@ -72,6 +72,11 @@ node {
 //        }
 //    }
 
+
+    environment {
+        PATH = "$PATH:/usr/local/bin/docker-compose"
+    }
+
     stage('start docker') {
         sh "docker-compose -f ./target/docker/app.yml up -d"
     }
