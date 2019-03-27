@@ -1,0 +1,114 @@
+/** 客户 */
+entity Customer {
+    organisationOrPerson
+    organisationName
+    gender
+    firstName
+    middleInitial
+    lastName
+    emailAddress
+    loginName
+    loginPassword
+    phoneNumber
+    addressLine1
+    addressLine2
+    addressLine3
+    addressLine4
+    townCty
+    county
+    country
+}
+
+entity CustomerPaymentMethod {
+customer_payment_id
+customer id
+credit card number
+}
+
+entity RefPaymentMethod {
+payment_method_code
+- eg CC=Credit Card
+}
+
+
+entity Order {
+    orderId
+    customerId
+    orderStatusCode
+    dateOrderPlaced
+    orderDetails
+}
+
+entity RefOrderStatusCode {
+- eg Cancelled, Completed
+}
+
+entity Shipment {
+shipment_id
+shipment_gate
+other shipment_getails
+}
+
+entity ShipmentItem {
+Shipment_id
+}
+
+entity Invoice {
+invoice number
+invoice status cods
+invoice date
+invoice detail
+}
+
+entity RefInvoiceStatusCode {
+invoice status code
+- eg Issued, Paid
+}
+
+entity Payment {
+payment_id
+number
+payment_gate
+payment_omount
+}
+
+entity OrderItem {
+order item id
+product_id
+order item status cods
+order_item_price
+RMA
+number
+RMA
+_issued_by
+RMA
+issued date
+other
+order item details
+}
+
+entity RefOrderItemStatusCode {
+- eg Oelivered, Out of Stoc
+}
+
+
+
+entity Product {
+product_id
+product_type_code
+return merchandise authorization nr
+product_name
+product_price
+product_color
+product_size
+product_gescription
+}
+
+
+entity RefProductTypes {
+product_type_code
+}
+
+
+
+
