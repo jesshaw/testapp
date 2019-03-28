@@ -132,7 +132,6 @@ entity RefProductTypes {
     parentProductTypeCode
 
     productTypeDescription // eg Book, CD
-
 }
 
 
