@@ -1,5 +1,6 @@
-/** 客户 */
 entity Customer {
+    customerId
+
     organisationOrPerson
     organisationName
     gender
@@ -20,14 +21,18 @@ entity Customer {
 }
 
 entity CustomerPaymentMethod {
-customer_payment_id
-customer id
-credit card number
+    customerPaymentId
+    customerId
+    paymentMethodCode
+
+    creditCardNumber
+    paymentMethodDetails
 }
 
 entity RefPaymentMethod {
-payment_method_code
-- eg CC=Credit Card
+    paymentMethodCode
+
+    paymentMethodDescription // eg CC=Credit Card
 }
 
 
@@ -35,78 +40,99 @@ entity Order {
     orderId
     customerId
     orderStatusCode
+
     dateOrderPlaced
     orderDetails
 }
 
 entity RefOrderStatusCode {
-- eg Cancelled, Completed
+    orderStatusCode
+
+    orderStatusDescription // eg Cancelled, Completed
 }
 
 entity Shipment {
-shipment_id
-shipment_gate
-other shipment_getails
+    shipmentId
+    orderId
+    invoiceNumber
+
+    shipmentTrackingNumber
+    shipmentDate
+    otherShipmentDetails
 }
 
 entity ShipmentItem {
-Shipment_id
-}
+    shipmentId
+    orderItemId
 
-entity Invoice {
-invoice number
-invoice status cods
-invoice date
-invoice detail
-}
-
-entity RefInvoiceStatusCode {
-invoice status code
-- eg Issued, Paid
-}
-
-entity Payment {
-payment_id
-number
-payment_gate
-payment_omount
 }
 
 entity OrderItem {
-order item id
-product_id
-order item status cods
-order_item_price
-RMA
-number
-RMA
-_issued_by
-RMA
-issued date
-other
-order item details
+    orderItemId
+    productId
+    orderId
+    orderItemStatusCode
+
+    orderItemQuantity
+    orderItemPrice
+    RmaNumber // RMA return merchandise authorization
+    RmaIssuedBy
+    RmaIssuedDate
+    otherOrderItemDetails
 }
 
 entity RefOrderItemStatusCode {
-- eg Oelivered, Out of Stoc
+    orderItemStatusCode
+
+    orderItemStatusDescription // eg Delivered, Out of Stock
 }
+
+entity Invoice {
+    invoiceNumber
+    orderId
+    invoiceStatusCode
+
+    invoiceDate
+    invoiceDetails
+}
+
+entity RefInvoiceStatusCode {
+    invoiceStatusCode
+
+    invoiceStatusDescription // eg Issued, Paid
+}
+
+entity Payment {
+    paymentId
+    invoiceNumber
+
+    paymentDate
+    paymentAmount
+}
+
 
 
 
 entity Product {
-product_id
-product_type_code
-return merchandise authorization nr
-product_name
-product_price
-product_color
-product_size
-product_gescription
+    productId
+    productTypeCode
+
+    returnMerchandiseAuthorizationNr
+    productName
+    productPrice
+    productColor
+    productSize
+    productDescription
+    otherProductDescription
 }
 
 
 entity RefProductTypes {
-product_type_code
+    productTypeCode
+    parentProductTypeCode
+
+    productTypeDescription // eg Book, CD
+
 }
 
 
