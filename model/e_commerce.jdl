@@ -1,139 +1,212 @@
+application {
+  config {
+    applicationType monolith
+    jhiPrefix lxm
+  }
+}
+
+/** 顾客 */
 entity Customer {
-    customerId
-
-    organisationOrPerson
-    organisationName
-    gender
-    firstName
-    middleInitial
-    lastName
-    emailAddress
-    loginName
-    loginPassword
-    phoneNumber
-    addressLine1
-    addressLine2
-    addressLine3
-    addressLine4
-    townCty
-    county
-    country
+    /** 组织或人 */
+    organisationOrPerson String
+    /** 组织名称 */
+    organisationName String
+    /** 性别 */
+    gender String
+    /** 名字 */
+    firstName String
+    /** 中间初始 */
+    middleInitial String
+    /** 姓 */
+    lastName String
+    /** 电子邮件地址 */
+    emailAddress String
+    /** 电话号码 */
+    phoneNumber String
+    /** 地址行1 */
+    addressLine1 String
+    /** 地址行2 */
+    addressLine2 String
+    /** 地址行3 */
+    addressLine3 String
+    /** 地址行4 */
+    addressLine4 String
+    /** 城市 */
+    townCity String
+    /** 郡县 */
+    county String
+    /** 国家 */
+    country String
 }
 
+/** 客户付费方式 */
 entity CustomerPaymentMethod {
-    customerPaymentId
-    customerId
-    paymentMethodCode
-
-    creditCardNumber
-    paymentMethodDetails
+    /** 支付方式码 */
+    paymentMethodCode String
+    /** 信用卡号码 */
+    creditCardNumber String
+    /** 支付方法详情 */
+    paymentMethodDetails String
 }
 
+
+/** 支付方式 */
 entity RefPaymentMethod {
-    paymentMethodCode
-
-    paymentMethodDescription // eg CC=Credit Card
+    /** 支付方式码 */
+    paymentMethodCode String
+    /** 支付方式描述 */
+    paymentMethodDescription String // eg CC=Credit Card
 }
 
 
+/** 订单 */
 entity Order {
-    orderId
-    customerId
-    orderStatusCode
-
-    dateOrderPlaced
-    orderDetails
+    /** 订单状态码 */
+    orderStatusCode String
+    /** 下单日期 */
+    dateOrderPlaced String
+    /** 订单详情 */
+    orderDetails String
 }
 
-entity RefOrderStatusCode {
-    orderStatusCode
-
-    orderStatusDescription // eg Cancelled, Completed
+/** 订单状态 */
+entity RefOrderStatus {
+    /** 订单状态码 */
+    orderStatusCode String
+    /** 订单状态描述 */
+    orderStatusDescription String // eg Cancelled, Completed
 }
 
+/** 发货单 */
 entity Shipment {
-    shipmentId
-    orderId
-    invoiceNumber
-
-    shipmentTrackingNumber
-    shipmentDate
-    otherShipmentDetails
+    /** 发票编号 */
+    invoiceNumber String
+    /** 发货单编号 */
+    shipmentTrackingNumber String
+    /** 发货日期 */
+    shipmentDate String
+    /** 其他发货单详情 */
+    otherShipmentDetails String
 }
 
+/** 发货项 */
 entity ShipmentItem {
-    shipmentId
-    orderItemId
-
 }
 
+/** 订单项 */
 entity OrderItem {
-    orderItemId
-    productId
-    orderId
-    orderItemStatusCode
-
-    orderItemQuantity
-    orderItemPrice
-    RmaNumber // RMA return merchandise authorization
-    RmaIssuedBy
-    RmaIssuedDate
-    otherOrderItemDetails
+    /** 订单项状态码 */
+    orderItemStatusCode String
+    /** 数量 */
+    orderItemQuantity String
+    /** 价格 */
+    orderItemPrice String
+    /** 退货号 */
+    RmaNumber String // RMA return merchandise authorization
+    /** 退货人 */
+    RmaIssuedBy String
+    /** 退货日期 */
+    RmaIssuedDate String
+    /** 其他 */
+    otherOrderItemDetails String
 }
 
-entity RefOrderItemStatusCode {
-    orderItemStatusCode
-
-    orderItemStatusDescription // eg Delivered, Out of Stock
+/** 订单项状态 */
+entity RefOrderItemStatus {
+    /** 订单项状态码 */
+    orderItemStatusCode String
+    /** 订单项状态描述 */
+    orderItemStatusDescription String // eg Delivered, Out of Stock
 }
-
+/** 发票 */
 entity Invoice {
-    invoiceNumber
-    orderId
-    invoiceStatusCode
-
-    invoiceDate
-    invoiceDetails
+    /** 发票单号 */
+    invoiceNumber String
+    /**  发票状态码 */
+    invoiceStatusCode String
+    /** 发票日期  */
+    invoiceDate String
+    /** 发票详情 */
+    invoiceDetails String
 }
 
-entity RefInvoiceStatusCode {
-    invoiceStatusCode
-
-    invoiceStatusDescription // eg Issued, Paid
+/** 发票状态 */
+entity RefInvoiceStatus {
+    /**  发票状态码 */
+    invoiceStatusCode String
+    /**  发票状态描述 */
+    invoiceStatusDescription String // eg Issued, Paid
 }
 
+/** 支付单 */
 entity Payment {
-    paymentId
-    invoiceNumber
-
-    paymentDate
-    paymentAmount
+    /** 发票单号  */
+    invoiceNumber String
+    /** 支付日期 */
+    paymentDate String
+    /** 支付金额 */
+    paymentAmount String
 }
 
-
-
-
+/** 产品 */
 entity Product {
-    productId
-    productTypeCode
+    /** 产品类型码 */
+    productTypeCode String
+    /** 退货商品授权 */
+    rmaNr String
+    /** 名称 */
+    productName String
+    /** 价格 */
+    productPrice String
+    /** 颜色 */
+    productColor String
+    /** 尺寸 */
+    productSize String
+    /** 描述 */
+    productDescription String
+    /** 其他描述 */
+    otherProductDescription String
+}
 
-    returnMerchandiseAuthorizationNr
-    productName
-    productPrice
-    productColor
-    productSize
-    productDescription
-    otherProductDescription
+/** 产品 */
+entity RefProductType {
+    /** 产品类型码 */
+    productTypeCode String
+    /** 父级产品类型码 */
+    parentProductTypeCode String
+    /** 产品类型描述 */
+    productTypeDescription String // eg Book, CD
 }
 
 
-entity RefProductTypes {
-    productTypeCode
-    parentProductTypeCode
-
-    productTypeDescription // eg Book, CD
+relationship OneToOne {
+  Customer{userId(login)} to User
 }
 
+relationship OneToMany {
+  Customer{paymentMethod} to CustomerPaymentMethod{customer}
+}
 
+relationship ManyToOne {
+  Order{customerId} to Customer
+  Shipment{orderId} to Order
+  ShipmentItem{shipmentId} to Shipment
+  ShipmentItem{orderItemId} to OrderItem
+  OrderItem{productId} to Product
+  OrderItem{orderId} to Order
+  Invoice{orderId} to Order
+  Payment{invoiceId} to Invoice
+  Product{productTypeId} to RefProductType
+  RefProductType{parentProductTypeId} to RefProductType
+}
 
+// 设置分页
+// paginate JobHistory, Employee with infinite-scroll
+// paginate all with pagination
+
+// 使用数据传递对象
+// dto * with mapstruct
+
+// 除了...之外，其他都实现服务接口功能
+// service all with serviceImpl except ShipmentItem
 
