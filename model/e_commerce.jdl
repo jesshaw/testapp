@@ -1,9 +1,9 @@
-application {
-  config {
-    applicationType monolith
-    jhiPrefix lxm
-  }
-}
+// application {
+//   config {
+//     applicationType monolith
+//     jhiPrefix lxm
+//   }
+// }
 
 /** 顾客 */
 entity Customer {
@@ -13,14 +13,6 @@ entity Customer {
     organisationName String
     /** 性别 */
     gender String
-    /** 名字 */
-    firstName String
-    /** 中间初始 */
-    middleInitial String
-    /** 姓 */
-    lastName String
-    /** 电子邮件地址 */
-    emailAddress String
     /** 电话号码 */
     phoneNumber String
     /** 地址行1 */
@@ -64,7 +56,7 @@ entity Order {
     /** 订单状态码 */
     orderStatusCode String
     /** 下单日期 */
-    dateOrderPlaced String
+    dateOrderPlaced Instant
     /** 订单详情 */
     orderDetails String
 }
@@ -84,7 +76,7 @@ entity Shipment {
     /** 发货单编号 */
     shipmentTrackingNumber String
     /** 发货日期 */
-    shipmentDate String
+    shipmentDate Instant
     /** 其他发货单详情 */
     otherShipmentDetails String
 }
@@ -98,15 +90,15 @@ entity OrderItem {
     /** 订单项状态码 */
     orderItemStatusCode String
     /** 数量 */
-    orderItemQuantity String
+    orderItemQuantity Long
     /** 价格 */
-    orderItemPrice String
+    orderItemPrice BigDecimal
     /** 退货号 */
     RmaNumber String // RMA return merchandise authorization
     /** 退货人 */
     RmaIssuedBy String
     /** 退货日期 */
-    RmaIssuedDate String
+    RmaIssuedDate Instant
     /** 其他 */
     otherOrderItemDetails String
 }
@@ -125,7 +117,7 @@ entity Invoice {
     /**  发票状态码 */
     invoiceStatusCode String
     /** 发票日期  */
-    invoiceDate String
+    invoiceDate Instant
     /** 发票详情 */
     invoiceDetails String
 }
@@ -143,9 +135,9 @@ entity Payment {
     /** 发票单号  */
     invoiceNumber String
     /** 支付日期 */
-    paymentDate String
+    paymentDate Instant
     /** 支付金额 */
-    paymentAmount String
+    paymentAmount BigDecimal
 }
 
 /** 产品 */
@@ -157,7 +149,7 @@ entity Product {
     /** 名称 */
     productName String
     /** 价格 */
-    productPrice String
+    productPrice BigDecimal
     /** 颜色 */
     productColor String
     /** 尺寸 */
@@ -180,23 +172,37 @@ entity RefProductType {
 
 
 relationship OneToOne {
+  /** 用户ID */
   Customer{userId(login)} to User
 }
 
 relationship OneToMany {
-  Customer{paymentMethod} to CustomerPaymentMethod{customer}
+  /** 支付方式 */
+  Customer{paymentMethod} to
+  /** 客户 */
+  CustomerPaymentMethod{customer}
 }
 
 relationship ManyToOne {
+  /** 顾客 */
   Order{customerId} to Customer
+  /** 订单 */
   Shipment{orderId} to Order
+  /** 发货单 */
   ShipmentItem{shipmentId} to Shipment
+  /** 订单项 */
   ShipmentItem{orderItemId} to OrderItem
+  /** 产品 */
   OrderItem{productId} to Product
+  /** 订单 */
   OrderItem{orderId} to Order
+  /** 订单 */
   Invoice{orderId} to Order
-  Payment{invoiceId} to Invoice
-  Product{productTypeId} to RefProductType
+  /** 发票单 */
+  Payment{invoiceId(invoiceNumber)} to Invoice
+  /** 产品类型 */
+  Product{productType} to RefProductType
+  /** 父类型 */
   RefProductType{parentProductTypeId} to RefProductType
 }
 
@@ -209,4 +215,6 @@ relationship ManyToOne {
 
 // 除了...之外，其他都实现服务接口功能
 // service all with serviceImpl except ShipmentItem
+
+
 
