@@ -3,7 +3,7 @@ import UserManagementService from './user-management.service';
 import AlertService from '@/shared/alert/alert.service';
 
 @Component
-export default class JhiUserManagementComponent extends Vue {
+export default class LxmUserManagementComponent extends Vue {
   @Inject('alertService')
   private alertService: () => AlertService;
   @Inject('userService')

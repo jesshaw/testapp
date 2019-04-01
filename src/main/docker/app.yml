@@ -2,8 +2,6 @@ version: '2'
 services:
     testapp-app:
         image: testapp
-        volumes:
-        - ~/volumes/jhipster/testapp/upload-dir:/upload-dir
         environment:
             - _JAVA_OPTIONS=-Xmx512m -Xms256m
             - SPRING_PROFILES_ACTIVE=prod,swagger

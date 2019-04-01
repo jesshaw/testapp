@@ -3,7 +3,7 @@ import { Component, Inject } from 'vue-property-decorator';
 import ConfigurationService from './configuration.service';
 
 @Component
-export default class JhiConfiguration extends Vue {
+export default class LxmConfiguration extends Vue {
   public orderProp = 'prefix';
   public reverse = false;
   public allConfiguration: any = false;

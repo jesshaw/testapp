@@ -2,7 +2,7 @@ import HealthService from './health.service';
 import { Component, Inject, Prop, Vue } from 'vue-property-decorator';
 
 @Component
-export default class JhiHealthModal extends Vue {
+export default class LxmHealthModal extends Vue {
   @Prop()
   currentHealth!: any;
   @Inject('healthService')

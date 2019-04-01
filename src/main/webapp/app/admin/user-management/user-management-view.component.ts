@@ -13,7 +13,7 @@ const beforeRouteEnter = (to, from, next) => {
 @Component({
   beforeRouteEnter
 })
-export default class JhiUserManagementView extends Vue {
+export default class LxmUserManagementView extends Vue {
   @Inject('userService')
   private userManagementService: () => UserManagementService;
   public user: any = null;

@@ -20,7 +20,7 @@ const RE_TOKEN_LIST_VALUE = /^(?:\d)+/;
 const RE_TOKEN_NAMED_VALUE = /^(?:\w)+/;
 
 // as we can't extend the default vue-i18n BaseFormatter we create a own copy of that class with required changes
-export default class JhiFormatter {
+export default class LxmFormatter {
   private caches: { [key: string]: Array<Token> };
   private leftBraces: RegExp;
   private rightBraces: RegExp;

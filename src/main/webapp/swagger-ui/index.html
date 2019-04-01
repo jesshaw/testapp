@@ -82,7 +82,7 @@
                 });
 
                 function addApiKeyAuthorization() {
-                    var authToken = localStorage.getItem("jhi-authenticationToken") || sessionStorage.getItem("jhi-authenticationToken");
+                    var authToken = localStorage.getItem("lxm-authenticationToken") || sessionStorage.getItem("lxm-authenticationToken");
                     var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", "Bearer " + authToken, "header");
                     window.swaggerUi.api.clientAuthorizations.add("bearer", apiKeyAuth);
                 }

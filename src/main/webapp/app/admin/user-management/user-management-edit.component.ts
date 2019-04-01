@@ -37,7 +37,7 @@ const validations: any = {
 @Component({
   validations
 })
-export default class JhiUserManagementEdit extends Vue {
+export default class LxmUserManagementEdit extends Vue {
   @Inject('alertService')
   private alertService: () => AlertService;
   @Inject('userService')

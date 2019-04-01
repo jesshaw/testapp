@@ -3,7 +3,7 @@ import { Component, Vue, Inject } from 'vue-property-decorator';
 import LogsService from './logs.service';
 
 @Component
-export default class JhiLogs extends Vue {
+export default class LxmLogs extends Vue {
   @Inject('logsService')
   private logsService: () => LogsService;
   private loggers: any[] = [];

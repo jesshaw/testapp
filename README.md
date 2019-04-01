@@ -1,14 +1,6 @@
-# testapp
+# jhipster
 
 This application was generated using JHipster 5.8.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.8.1](https://www.jhipster.tech/documentation-archive/v5.8.1).
-
-## DB
-
-mysql -u root -p
-
-CREATE DATABASE IF NOT EXISTS testapp DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
-
-config database password
 
 ## Development
 
@@ -93,7 +85,7 @@ will generate open Vue Project Manager. From there, you'll be able to manage you
 
 ## Building for production
 
-To optimize the testapp application for production, run:
+To optimize the jhipster application for production, run:
 
     ./mvnw -Pprod clean package
 

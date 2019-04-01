@@ -4,9 +4,9 @@
       "packageName": "com.mycompany.myapp",
       "nativeLanguage": "zh-cn"
     },
-    "jhipsterVersion": "5.8.2",
+    "jhipsterVersion": "5.8.1",
     "applicationType": "monolith",
-    "baseName": "testapp",
+    "baseName": "jhipster",
     "packageName": "com.mycompany.myapp",
     "packageFolder": "com/mycompany/myapp",
     "serverPort": "8080",
@@ -15,7 +15,7 @@
     "enableHibernateCache": true,
     "websocket": false,
     "databaseType": "sql",
-    "devDatabaseType": "mysql",
+    "devDatabaseType": "h2Disk",
     "prodDatabaseType": "mysql",
     "searchEngine": false,
     "messageBroker": false,
@@ -24,7 +24,7 @@
     "enableSwaggerCodegen": false,
     "jwtSecretKey": "YThiOTczNmM5MTYwNDE0YWQ2ZTc3NGVhOWExYjhjZGJjNWU4MDg2Y2I0YjQ0OTkzYjliZDQ4MWExYTQ2NDU2YjhkOGYwMmNlZmJhY2JhMzZjODJmMjM2NmM3Yjc1ZDM0ZDJhZTA0MjdiOTEwODUwZjg3NjNjNTIxNDQ3ODkwMDc=",
     "testFrameworks": [],
-    "jhiPrefix": "jhi",
+    "jhiPrefix": "lxm",
     "entitySuffix": "",
     "dtoSuffix": "DTO",
     "otherModules": [
@@ -35,10 +35,15 @@
     ],
     "enableTranslation": true,
     "clientPackageManager": "npm",
-    "nativeLanguage": "zh-cn",
-    "languages": ["zh-cn", "en"],
+    "nativeLanguage": "en",
+    "languages": ["en", "fr"],
     "blueprint": "generator-jhipster-vuejs",
-    "blueprintVersion": "1.0.0-beta.1"
+    "blueprintVersion": "1.0.0-beta.1",
+    "skipClient": false,
+    "skipServer": false,
+    "skipUserManagement": false,
+    "clientFramework": "angularX",
+    "useSass": true
   },
   "generator-jhipster-vuejs": {
     "clientTheme": "materia",
@@ -48,6 +53,9 @@
     "baseName": "testapp",
     "clientFramework": "vue",
     "useSass": true,
-    "clientPackageManager": "npm"
-  }
+    "clientPackageManager": "npm",
+    "enableTranslation": true,
+    "languages": ["en", "fr"]
+  },
+  "entities": []
 }

@@ -1,14 +1,14 @@
 import numeral from 'numeral';
-import JhiMetricsModal from './metrics-modal.vue';
+import LxmMetricsModal from './metrics-modal.vue';
 import MetricsService from './metrics.service';
 import { Component, Vue, Inject } from 'vue-property-decorator';
 
 @Component({
   components: {
-    'metrics-modal': JhiMetricsModal
+    'metrics-modal': LxmMetricsModal
   }
 })
-export default class JhiMetrics extends Vue {
+export default class LxmMetrics extends Vue {
   public metrics: any = {};
   public threadData: any = null;
   public threadStats: any = {};

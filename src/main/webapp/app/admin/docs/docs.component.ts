@@ -1,4 +1,4 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
-export default class JhiDocs extends Vue {}
+export default class LxmDocs extends Vue {}

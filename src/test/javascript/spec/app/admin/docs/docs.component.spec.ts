@@ -1,6 +1,6 @@
 import { shallowMount, createLocalVue, Wrapper } from '@vue/test-utils';
-import JhiDocs from '@/admin/docs/docs.vue';
-import JhiDocsClass from '@/admin/docs/docs.component';
+import LxmDocs from '@/admin/docs/docs.vue';
+import LxmDocsClass from '@/admin/docs/docs.component';
 
 import * as config from '@/shared/config/config';
 
@@ -9,16 +9,16 @@ const localVue = createLocalVue();
 config.initVueApp(localVue);
 const i18n = config.initI18N(localVue);
 
-describe('JhiDocs', () => {
-  let jhiDocs: JhiDocsClass;
-  let wrapper: Wrapper<JhiDocsClass>;
+describe('LxmDocs', () => {
+  let lxmDocs: LxmDocsClass;
+  let wrapper: Wrapper<LxmDocsClass>;
 
   beforeEach(() => {
-    wrapper = shallowMount<JhiDocsClass>(JhiDocs, {
+    wrapper = shallowMount<LxmDocsClass>(LxmDocs, {
       i18n,
       localVue
     });
-    jhiDocs = wrapper.vm;
+    lxmDocs = wrapper.vm;
   });
 
   it('should be a Vue instance', async () => {

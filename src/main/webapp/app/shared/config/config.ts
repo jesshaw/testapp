@@ -1,6 +1,6 @@
 import Vuex from 'vuex';
 import VueI18n from 'vue-i18n';
-import JhiFormatter from './formatter';
+import LxmFormatter from './formatter';
 import setupAxiosInterceptors from '@/shared/config/axios-interceptor';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -36,7 +36,6 @@ import { faRoad } from '@fortawesome/free-solid-svg-icons/faRoad';
 import { faCloud } from '@fortawesome/free-solid-svg-icons/faCloud';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
-import { faTh } from '@fortawesome/free-solid-svg-icons/faTh';
 
 import VueCookie from 'vue-cookie';
 import Vuelidate from 'vuelidate';
@@ -85,8 +84,7 @@ export function initFortAwesome(vue) {
     faTimesCircle,
     faSearch,
     faBars,
-    faTimes,
-    faTh
+    faTimes
   );
 }
 
@@ -94,7 +92,7 @@ export function initI18N(vue) {
   vue.use(VueI18n);
   return new VueI18n({
     silentTranslationWarn: true,
-    formatter: new JhiFormatter()
+    formatter: new LxmFormatter()
   });
 }
 
@@ -111,10 +109,10 @@ export function initVueXStore(vue) {
       authenticated: false,
       ribbonOnProfiles: '',
       activeProfiles: '',
-      currentLanguage: 'zh-cn',
+      currentLanguage: 'en',
       languages: {
-        'zh-cn': { name: '中文（简体）' },
-        en: { name: 'English' }
+        en: { name: 'English' },
+        fr: { name: 'Français' }
         // jhipster-needle-i18n-language-key-pipe - JHipster will add/remove languages in this object
       }
     },

@@ -1,13 +1,13 @@
 import HealthService from './health.service';
-import JhiHealthModal from './health-modal.vue';
+import LxmHealthModal from './health-modal.vue';
 import { Component, Inject, Vue } from 'vue-property-decorator';
 
 @Component({
   components: {
-    'health-modal': JhiHealthModal
+    'health-modal': LxmHealthModal
   }
 })
-export default class JhiHealth extends Vue {
+export default class LxmHealth extends Vue {
   public healthData: any = null;
   public currentHealth: any = null;
   public updatingHealth = false;

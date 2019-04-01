@@ -14,15 +14,15 @@ const ResetPasswordInit = () => import('../account/reset-password/init/reset-pas
 const ResetPasswordFinish = () => import('../account/reset-password/finish/reset-password-finish.vue');
 const ChangePassword = () => import('../account/change-password/change-password.vue');
 const Settings = () => import('../account/settings/settings.vue');
-const JhiUserManagementComponent = () => import('../admin/user-management/user-management.vue');
-const JhiUserManagementViewComponent = () => import('../admin/user-management/user-management-view.vue');
-const JhiUserManagementEditComponent = () => import('../admin/user-management/user-management-edit.vue');
-const JhiConfigurationComponent = () => import('../admin/configuration/configuration.vue');
-const JhiDocsComponent = () => import('../admin/docs/docs.vue');
-const JhiHealthComponent = () => import('../admin/health/health.vue');
-const JhiLogsComponent = () => import('../admin/logs/logs.vue');
-const JhiAuditsComponent = () => import('../admin/audits/audits.vue');
-const JhiMetricsComponent = () => import('../admin/metrics/metrics.vue');
+const LxmUserManagementComponent = () => import('../admin/user-management/user-management.vue');
+const LxmUserManagementViewComponent = () => import('../admin/user-management/user-management-view.vue');
+const LxmUserManagementEditComponent = () => import('../admin/user-management/user-management-edit.vue');
+const LxmConfigurationComponent = () => import('../admin/configuration/configuration.vue');
+const LxmDocsComponent = () => import('../admin/docs/docs.vue');
+const LxmHealthComponent = () => import('../admin/health/health.vue');
+const LxmLogsComponent = () => import('../admin/logs/logs.vue');
+const LxmAuditsComponent = () => import('../admin/audits/audits.vue');
+const LxmMetricsComponent = () => import('../admin/metrics/metrics.vue');
 /* tslint:disable */
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
@@ -82,62 +82,62 @@ export default new Router({
     },
     {
       path: '/admin/user-management',
-      name: 'JhiUser',
-      component: JhiUserManagementComponent,
+      name: 'LxmUser',
+      component: LxmUserManagementComponent,
       meta: { authorities: ['ROLE_ADMIN'] }
     },
     {
       path: '/admin/user-management/new',
-      name: 'JhiUserCreate',
-      component: JhiUserManagementEditComponent,
+      name: 'LxmUserCreate',
+      component: LxmUserManagementEditComponent,
       meta: { authorities: ['ROLE_ADMIN'] }
     },
     {
       path: '/admin/user-management/:userId/edit',
-      name: 'JhiUserEdit',
-      component: JhiUserManagementEditComponent,
+      name: 'LxmUserEdit',
+      component: LxmUserManagementEditComponent,
       meta: { authorities: ['ROLE_ADMIN'] }
     },
     {
       path: '/admin/user-management/:userId/view',
-      name: 'JhiUserView',
-      component: JhiUserManagementViewComponent,
+      name: 'LxmUserView',
+      component: LxmUserManagementViewComponent,
       meta: { authorities: ['ROLE_ADMIN'] }
     },
     {
       path: '/admin/docs',
-      name: 'JhiDocsComponent',
-      component: JhiDocsComponent,
+      name: 'LxmDocsComponent',
+      component: LxmDocsComponent,
       meta: { authorities: ['ROLE_ADMIN'] }
     },
     {
       path: '/admin/audits',
-      name: 'JhiAuditsComponent',
-      component: JhiAuditsComponent,
+      name: 'LxmAuditsComponent',
+      component: LxmAuditsComponent,
       meta: { authorities: ['ROLE_ADMIN'] }
     },
     {
-      path: '/admin/jhi-health',
-      name: 'JhiHealthComponent',
-      component: JhiHealthComponent,
+      path: '/admin/lxm-health',
+      name: 'LxmHealthComponent',
+      component: LxmHealthComponent,
       meta: { authorities: ['ROLE_ADMIN'] }
     },
     {
       path: '/admin/logs',
-      name: 'JhiLogsComponent',
-      component: JhiLogsComponent,
+      name: 'LxmLogsComponent',
+      component: LxmLogsComponent,
       meta: { authorities: ['ROLE_ADMIN'] }
     },
     {
-      path: '/admin/jhi-metrics',
-      name: 'JhiMetricsComponent',
-      component: JhiMetricsComponent,
+      path: '/admin/lxm-metrics',
+      name: 'LxmMetricsComponent',
+      component: LxmMetricsComponent,
       meta: { authorities: ['ROLE_ADMIN'] }
     },
     {
-      path: '/admin/jhi-configuration',
-      name: 'JhiConfigurationComponent',
-      component: JhiConfigurationComponent,
+      path: '/admin/lxm-configuration',
+      name: 'LxmConfigurationComponent',
+      component: LxmConfigurationComponent,
       meta: { authorities: ['ROLE_ADMIN'] }
     }
     // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

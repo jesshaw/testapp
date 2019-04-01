@@ -1,22 +1,13 @@
 <template>
     <b-navbar toggleable="md" type="dark" class="bg-primary">
         <div class="jh-logo-container float-left">
-            <b-button v-show="authenticated" v-on:click="toggleSideBar('sidebar')" variant="primary "
-            class="float-left">
-                <font-awesome-icon icon="bars" :rotation="showBar?180:90"/>
-            </b-button>
-            <!--<b-button v-b-toggle.sidebar variant="primary float-left"><font-awesome-icon icon="th-list" /></b-button>-->
+            <b-navbar-toggle right class="jh-navbar-toggler d-lg-none float-right" href="javascript:void(0);"  data-toggle="collapse" target="header-tabs" aria-expanded="false" aria-label="Toggle navigation">
+                <font-awesome-icon icon="bars" />
+            </b-navbar-toggle>
             <b-navbar-brand class="logo float-left" b-link to="/">
-                <!--<span class="logo-img"></span>-->
+                <span class="logo-img"></span>
                 <span v-text="$t('global.title')" class="navbar-title">testapp</span> <span class="navbar-version">{{version}}</span>
             </b-navbar-brand>
-
-            <b-button v-b-toggle.header-tabs variant="primary" class="jh-navbar-toggler float-right">
-                <font-awesome-icon icon="th" />
-            </b-button>
-            <!--<b-navbar-toggle right class="jh-navbar-toggler d-lg-none float-right" href="javascript:void(0);"  data-toggle="collapse" target="header-tabs" aria-expanded="false" aria-label="Toggle navigation">-->
-                <!--<font-awesome-icon icon="th" />-->
-            <!--</b-navbar-toggle>-->
         </div>
         <b-collapse is-nav id="header-tabs">
             <b-navbar-nav class="ml-auto">
@@ -51,15 +42,15 @@
                         <font-awesome-icon icon="user" />
                         <span v-text="$t('global.menu.admin.userManagement')">User management</span>
                     </b-dropdown-item>
-                    <b-dropdown-item  to="/admin/jhi-metrics">
+                    <b-dropdown-item  to="/admin/lxm-metrics">
                         <font-awesome-icon icon="tachometer-alt" />
                         <span v-text="$t('global.menu.admin.metrics')">Metrics</span>
                     </b-dropdown-item>
-                    <b-dropdown-item to="/admin/jhi-health">
+                    <b-dropdown-item to="/admin/lxm-health">
                         <font-awesome-icon icon="heart" />
                         <span v-text="$t('global.menu.admin.health')">Health</span>
                     </b-dropdown-item>
-                    <b-dropdown-item  to="/admin/jhi-configuration">
+                    <b-dropdown-item  to="/admin/lxm-configuration">
                         <font-awesome-icon icon="list" />
                         <span v-text="$t('global.menu.admin.configuration')">Configuration</span>
                     </b-dropdown-item>
@@ -74,6 +65,10 @@
                     <b-dropdown-item v-if="swaggerEnabled"  to="/admin/docs">
                         <font-awesome-icon icon="book" />
                         <span v-text="$t('global.menu.admin.apidocs')">API</span>
+                    </b-dropdown-item>
+                    <b-dropdown-item v-if="!inProduction"  href='./h2-console' target="_tab">
+                        <font-awesome-icon icon="hdd" />
+                        <span v-text="$t('global.menu.admin.database')">Database</span>
                     </b-dropdown-item>
                 </b-nav-item-dropdown>
                 <b-nav-item-dropdown id="languagesnavBarDropdown" right v-if="languages && Object.keys(languages).length > 1">

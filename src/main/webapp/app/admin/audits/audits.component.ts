@@ -3,7 +3,7 @@ import AuditsService from './audits.service';
 import { Component, Inject, Vue } from 'vue-property-decorator';
 
 @Component
-export default class JhiAudits extends Vue {
+export default class LxmAudits extends Vue {
   public audits: any = [];
   public fromDate: any = null;
   public itemsPerPage = 20;
